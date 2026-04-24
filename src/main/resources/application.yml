@@ -11,5 +11,10 @@ spring:
     init:
       mode: always
 
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true   # phone_number → phoneNumber 자동 매핑
+
+
 server:
   port: 8080 # 스프링 부트 서버 포트
