@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: spam_mariadb
+    ports:
+      - "3306:3306" # 맥북 포트 : 컨테이너 포트
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234 # 루트 비밀번호
+      MYSQL_DATABASE: spam_db # 띄울 때 자동으로 생성할 데이터베이스 이름
+      MYSQL_USER: spam_db # 사용할 유저 이름
+      MYSQL_PASSWORD: 1234 # 유저 비밀번호
+    volumes:
+      - mariadb_data:/var/lib/mysql # DB 데이터가 날아가지 않게 맥북에 영구 저장
+    restart: always
+
+volumes:
+  mariadb_data:

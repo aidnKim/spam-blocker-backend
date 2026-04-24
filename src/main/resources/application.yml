@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    # 아까 docker-compose.yml에서 세팅했던 접속 정보 그대로!
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/spam_db
+    username: spam_db
+    password: 1234
+
+  # JPA나 MyBatis 쿼리가 터미널에 예쁘게 찍히도록 설정
+  sql:
+    init:
+      mode: always
+
+server:
+  port: 8080 # 스프링 부트 서버 포트
