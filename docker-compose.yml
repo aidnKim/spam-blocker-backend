@@ -10,7 +10,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # 루트 비밀번호
       MYSQL_DATABASE: ${MYSQL_DB_NAME} # 띄울 때 자동으로 생성할 데이터베이스 이름
       MYSQL_USER: ${MYSQL_DB_USER} # 사용할 유저 이름
-      MYSQL_PASSWORD: ${MYSQL_DB_NAME} # 유저 비밀번호
+      MYSQL_PASSWORD: ${MYSQL_DB_PASSWORD} # 유저 비밀번호
     volumes:
       - mariadb_data:/var/lib/mysql # DB 데이터가 날아가지 않게 맥북에 영구 저장
     restart: always
