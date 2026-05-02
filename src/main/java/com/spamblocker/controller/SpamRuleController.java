@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,5 +48,13 @@ public class SpamRuleController {
     public String deleteRule(@PathVariable Long id) {
         spamRuleService.deleteRule(id);
         return "삭제 완료";
+    }
+    
+    //업데이트 
+    @PutMapping("/spam-rules/{id}")
+    public String updateRule(@PathVariable Long id, @RequestBody SpamRuleDto dto) {
+        dto.setId(id);
+        spamRuleService.updateRule(dto);
+        return "수정 완료";
     }
 }
