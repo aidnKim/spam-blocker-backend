@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.spamblocker.dto.SpamRuleDto;
 
@@ -23,4 +24,7 @@ public interface SpamRuleMapper {
     
     @Delete("DELETE FROM spam_rule WHERE id = #{id}")
     void deleteRule(Long id);
+    
+    @Update("UPDATE spam_rule SET phone_number = #{phoneNumber}, match_type = #{matchType}, memo = #{memo} WHERE id = #{id}")
+    void updateRule(SpamRuleDto dto);
 }

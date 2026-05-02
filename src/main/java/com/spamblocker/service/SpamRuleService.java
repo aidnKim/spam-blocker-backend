@@ -35,4 +35,12 @@ public class SpamRuleService {
     public void deleteRule(Long id) {
         spamRuleMapper.deleteRule(id);
     }
+    
+    // 룰 업데이트 
+    public void updateRule(SpamRuleDto dto) {
+        if (!"EXACT".equals(dto.getMatchType()) && !"PREFIX".equals(dto.getMatchType())) {
+            throw new IllegalArgumentException("matchType은 'EXACT' 또는 'PREFIX'만 가능합니다.");
+        }
+        spamRuleMapper.updateRule(dto);
+    }
 }
